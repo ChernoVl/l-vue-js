@@ -6,8 +6,28 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
     <body>
-        <div id="app" v-bind:title="message + ' ' + 'Develop' ">
+        <div id="app" :title="message + ' ' + 'Develop' ">
             {{ message }}
+            <h1 v-if="status">It's true</h1>
+            <h1 v-else>It's false</h1>
+            <hr>
+            <h1 v-if="!status2">equals 1</h1>
+            <h1 v-else-if="status2 == 2">equals 2</h1>
+            <h1 v-else="status2 == 2">equals some {{ status2 }}</h1>
+
+            <br><hr><br>
+
+            <template v-if="status3 == 1">
+                <h1>Headline 1</h1>
+                <p>description 1</p>
+            </template>
+
+            <template v-else>
+                <h1>Headline 2</h1>
+                <p>description 2</p>
+            </template>
+
+            <h1 v-show="status4">Headline with v-show</h1>
         </div>
 
 
@@ -15,7 +35,11 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    message: 'Hello Vue!'
+                    message: 'Hello Vue!',
+                    status: true,
+                    status2: 0,
+                    status3: 3,
+                    status4: 0
                 }
             })
         </script>
