@@ -8,16 +8,8 @@
     <body>
         <div id="app" :title="message + ' ' + 'Develop' ">
             {{ message }}
-            <h1 v-if="status">It's true</h1>
-            <h1 v-else>It's false</h1>
-            <hr>
-            <h1 v-if="!status2">equals 1</h1>
-            <h1 v-else-if="status2 == 2">equals 2</h1>
-            <h1 v-else="status2 == 2">equals some {{ status2 }}</h1>
 
-            <br><hr><br>
-
-            <template v-if="status3 == 1">
+            <template v-if="status == 1">
                 <h1>Headline 1</h1>
                 <p>description 1</p>
             </template>
@@ -27,7 +19,14 @@
                 <p>description 2</p>
             </template>
 
-            <h1 v-show="status4">Headline with v-show</h1>
+            <div class="class-default list" :class="{ active: isActive, 'btn-list': isBtn }"></div>
+
+            <div :class="[ isActive ? 'active btn' : 'disabled', 'default' ]"></div>
+
+            <h1 :style="{ color: 'red', width: width + 'px' }">
+                Text
+            </h1>
+
         </div>
 
 
@@ -36,10 +35,10 @@
                 el: '#app',
                 data: {
                     message: 'Hello Vue!',
-                    status: true,
-                    status2: 0,
-                    status3: 3,
-                    status4: 0
+                    status: 1,
+                    isActive: true,
+                    isBtn: false,
+                    width: 15
                 }
             })
         </script>
