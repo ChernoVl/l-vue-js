@@ -6,26 +6,32 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
     <body>
-        <div id="app" :title="message + ' ' + 'Develop' ">
-            {{ message }}
+        <div id="app">
 
-            <template v-if="status == 1">
-                <h1>Headline 1</h1>
-                <p>description 1</p>
-            </template>
+            <ul>
+                <li v-for="(item, index) in list">
+                    index {{ index }}: {{ item }}
+                </li>
+            </ul>
 
-            <template v-else>
-                <h1>Headline 2</h1>
-                <p>description 2</p>
-            </template>
+            <ul>
+                <li v-for="user in users">
+                    {{ user.id }}: {{ user.name }}
+                </li>
+            </ul>
 
-            <div class="class-default list" :class="{ active: isActive, 'btn-list': isBtn }"></div>
-
-            <div :class="[ isActive ? 'active btn' : 'disabled', 'default' ]"></div>
-
-            <h1 :style="{ color: 'red', width: width + 'px' }">
-                Text
-            </h1>
+            <table border="1">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                </thead>
+                <tbody>
+                    <tr v-for="user in users">
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
 
@@ -34,11 +40,11 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    message: 'Hello Vue!',
-                    status: 1,
-                    isActive: true,
-                    isBtn: false,
-                    width: 15
+                    list: ['one', 'two', 'three'],
+                    users: [
+                        {id: 1, name: 'Ivan'},
+                        {id: 2, name: 'Sergey'},
+                    ]
                 }
             })
         </script>
