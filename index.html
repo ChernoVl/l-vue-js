@@ -20,7 +20,7 @@
                 </li>
             </ul>
 
-            <table border="1">
+            <table border="1" @click="nameFunction">
                 <thead>
                     <th>ID</th>
                     <th>Name</th>
@@ -33,6 +33,13 @@
                 </tbody>
             </table>
 
+            <br><br>
+            <button v-on:click="counter += 1">+1</button>
+            <br>
+            <p>Кнопка выше была нажата {{ counter }} раз</p>
+
+            <button v-on:click="nameFunction2(); users[0].id = 20">Alert nameFunction2 + set ID to 20</button>
+
         </div>
 
 
@@ -40,11 +47,22 @@
             var app = new Vue({
                 el: '#app',
                 data: {
+                    counter: 0,
+
                     list: ['one', 'two', 'three'],
                     users: [
                         {id: 1, name: 'Ivan'},
                         {id: 2, name: 'Sergey'},
-                    ]
+                    ],
+                },
+
+                methods: {
+                    nameFunction(){
+                        alert('nameFunction');
+                    },
+                    nameFunction2: function(){
+                        alert('nameFunction2');
+                    }
                 }
             })
         </script>
