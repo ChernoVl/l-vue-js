@@ -1,10 +1,11 @@
 <template>
+  <h1>{{ msg }}</h1>
+
   <!--
       Note we don't need .value inside templates because
       refs are automatically "unwrapped" in templates.
     -->
   <h1>{{ message }}</h1>
-  <h1>{{ msg }}</h1>
 
   <!--
     Bind to a method/function.
@@ -26,10 +27,13 @@
 
 <script>
 export default {
+  props: {
+    msg: String
+  },
+
   data() {
     return {
-      message: 'Hello World!',
-      msg: "hi"
+      message: 'Hello World!'
     }
   },
   methods: {
