@@ -1,18 +1,15 @@
 <template>
   <div id="App">
-    <FirstComponent/>
-    <hr/>
-    <SecondComponent/>
+    <MyComponent/>
   </div>
 </template>
 
 <script>
-import FirstComponent from "@/components/FirstComponent";
-import SecondComponent from "@/components/SecondComponent";
+import MyComponent from "@/components/MyComponent";
 
 export default {
   name: 'App',
-  components: {SecondComponent, FirstComponent},
+  components: {MyComponent},
 }
 </script>
 
