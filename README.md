@@ -1,4 +1,6 @@
-# l-vue-js
+# Study
+
+#Video playlist https://www.youtube.com/playlist?list=PL-wEcSTifrSn5cae0gFQ7Gy7v3t6c7hLF
 
 ## Project setup
 ```
